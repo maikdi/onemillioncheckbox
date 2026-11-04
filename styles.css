@@ -1,0 +1,72 @@
+#wrapper {
+    background-color: beige;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+#header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid black;
+}
+
+/*
+  Stolen from Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+  --blue: #3777ff;
+  --dark: #181a21;
+  --red: hsla(6, 59%, 50%, 1);
+  --gold: hsla(47, 65%, 45%, 1);
+  --green: hsla(128, 59%, 40%, 1);
+  --purple: hsla(279, 59%, 50%, 1);
+  --orange: hsla(28, 59%, 50%, 1);
+
+  background-color: #ebeaea;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Lato", sans-serif;
+  color: var(--dark);
+}
+img,
+picture,
+video,  
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
