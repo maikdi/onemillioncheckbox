@@ -8,7 +8,7 @@ import BitSet from '../bitset';
 
 const CHECKBOX_SIZE = 25;
 const CHECKBOX_MARGIN = 10;
-const TOTAL_CHECKBOX = 1000;
+const TOTAL_CHECKBOX = 100;
 
 const StyledCheckbox = styled.input`
   margin: ${CHECKBOX_MARGIN}px;
@@ -35,7 +35,7 @@ const App = () => {
     const GRID_ROW_COUNT = Math.ceil(TOTAL_CHECKBOX/GRID_COLUMN_COUNT);
     const [states, setStates] = useState(() => new BitSet(TOTAL_CHECKBOX))
     const bitSetRef = useRef(new BitSet(TOTAL_CHECKBOX))
-    const socket = io('localhost:42069');
+    const socket = io('', {rejectUnauthorized: false, withCredentials: false, credentials: false});
     socket.connect()
     useEffect(() => {
         socket.emitWithAck('get_states', '').then((initial) => {

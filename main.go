@@ -11,7 +11,7 @@ import (
 	"github.com/valkey-io/valkey-go"
 )
 
-const TOTAL_CHECKBOXES = 1000
+const TOTAL_CHECKBOXES = 100
 var STATES_STRING = strings.Repeat("0", TOTAL_CHECKBOXES) 
 var STATES_ARRAY [TOTAL_CHECKBOXES]int 
 
@@ -61,15 +61,15 @@ func main() {
 			index, _ := strconv.Atoi(args[0].(string))
 			toggleBit(index)
 			statesString := statesArrayToString(STATES_ARRAY[:])
-			fmt.Printf("STATES STRING AFTER TOGGLE %s\n", statesString)
+			// fmt.Printf("STATES STRING AFTER TOGGLE %s\n", statesString)
 			saveStatesToRedis(ctx, client, statesString)
 			io.Emit("states", statesString)
 		})
 		
 		socket.On("get_states", func(args ...any) {
-			fmt.Println("RECEIVED GET STATES")
+			// fmt.Println("RECEIVED GET STATES")
 			states := statesArrayToString(STATES_ARRAY[:])
-			fmt.Printf("STATES: %s\n", states)
+			// fmt.Printf("STATES: %s\n", states)
 			ack := args[1].(server.Ack)
 			ack([]any{states}, nil)
 		})
@@ -80,7 +80,7 @@ func main() {
 	})
 
 	http.Handle("/socket.io/", io.ServeHandler(nil))
-	http.ListenAndServe(":42069", nil)
+	http.ListenAndServe("0.0.0.0:42069", nil)
 }
 
 

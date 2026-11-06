@@ -4,7 +4,8 @@
   "description": "Copy of One Million Checkboxes",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel index.html"
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "dependencies": {
     "parcel": "^2.16.4",
