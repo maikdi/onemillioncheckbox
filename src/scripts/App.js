@@ -35,7 +35,7 @@ const App = () => {
     const GRID_ROW_COUNT = Math.ceil(TOTAL_CHECKBOX/GRID_COLUMN_COUNT);
     const [states, setStates] = useState(() => new BitSet(TOTAL_CHECKBOX))
     const bitSetRef = useRef(new BitSet(TOTAL_CHECKBOX))
-    const socket = io('https://35.224.36.139:42069', {rejectUnauthorized: false, withCredentials: false, credentials: false});
+    const socket = io('http://35.224.36.139:42069', {rejectUnauthorized: false, withCredentials: false, credentials: false});
     socket.connect()
     useEffect(() => {
         socket.emitWithAck('get_states', '').then((initial) => {
